@@ -29,5 +29,14 @@ function UpdatePosition()
 	if(posX == 0)then
 		posX = screenWidth
 	end
+
+
+
+	function love.load()
+coin = love.graphics.newImage("coin.png")
+end
+function love.draw()
+love.graphics.draw(coin, 400, 300)
+end
 end
 
