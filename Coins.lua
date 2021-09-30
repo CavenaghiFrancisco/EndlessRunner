@@ -1,27 +1,22 @@
-posX = 0
-posY = 0
-velY = 0
-velX = 0
+coin = {}
+
+
 
 screenWidth = 600
 
 isActive = true
 isFalling = false
 
-function UpdatePosition()
-	if(posY >= 30)then
-		isFalling = true
-	end
-	if(posY == 0)then
-		isFalling = false
-	end
-	if(isFalling = false)then
-	posY += velY
-
-	if(isFalling)
-	posY -= velY
+function coin.Init()
+coin.posX = 0
+coin.posY = 0
+coin.velY = 0
+coin.velX = 0
+coin.radius = 0.2
+coin.LoadSprite()
 	end
 
+function ball.UpdatePosition()
 	if(posX > 0)then
 		posX -= velX
 	end
@@ -30,13 +25,11 @@ function UpdatePosition()
 		posX = screenWidth
 	end
 
-
-
-	function love.load()
-coin = love.graphics.newImage("coin.png")
+	function ball.LoadSprite()
+    coin.image = love.graphics.newImage("coin.png")
 end
-function love.draw()
-love.graphics.draw(coin, 400, 300)
+function ball.Draw()
+    love.graphics.draw(coin.image, velX + coin.posX, velY + coin.posY, coin.rotation, coin.radius, coin.radius)
 end
 end
 
